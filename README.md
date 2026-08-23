@@ -62,22 +62,24 @@ More on GitHub: [github.com/jeevan-bhat](https://github.com/jeevan-bhat)
 - **Résumé** — replace `assets/resume.pdf` with an updated PDF (keep the filename).
 - **Colors** — tweak the brand palette at the top of `css/style.css` (`--brand`, `--brand-2`, `--accent`); everything else derives from those tokens.
 
-## 📬 The contact form & email links
+## 📬 The contact form
 
-The form validates on the client, then **opens a Gmail compose window** pre-filled
-with the visitor's name, email, subject, and message, addressed to
-`jeevanbhat33@gmail.com` — so a single click actually starts a real email (no
-backend required). The email icons/links in the hero, contact card, and footer
-open the same Gmail compose view in a new tab.
+The form validates on the client, then delivers each message straight to
+`jeevanbhat33@gmail.com` via [FormSubmit](https://formsubmit.co) — a free,
+no-backend relay. Submitting POSTs the fields with `fetch()` and shows an inline
+success message; nothing opens a mail client.
 
-- The Gmail compose URL is built in the submit handler in `js/script.js`
-  (`https://mail.google.com/mail/?view=cm&fs=1&to=…`).
-- Prefer the standard OS mail client instead? Swap those links/handler back to
-  `mailto:jeevanbhat33@gmail.com`.
-- Want messages delivered silently in the background (no compose window)?
-  Replace the compose block with a `fetch()` POST to a service like
-  [Formspree](https://formspree.io) / [Web3Forms](https://web3forms.com) or your
-  own API.
+- **One-time activation:** the first submission triggers a FormSubmit "Activate"
+  email to `jeevanbhat33@gmail.com`. Click it once, and every later message
+  arrives directly in the inbox.
+- The endpoint lives in the submit handler in `js/script.js`
+  (`https://formsubmit.co/ajax/…`).
+- Prefer a key-based service? Swap the endpoint for a
+  [Web3Forms](https://web3forms.com) / [Formspree](https://formspree.io) one —
+  the `fetch()` shape is the same.
+
+The email icons in the hero, contact card, and footer still open a Gmail compose
+window for visitors who'd rather email from their own account.
 
 ## 🚀 Deploy to Render
 

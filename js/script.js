@@ -268,49 +268,60 @@
         return;
       }
 
-      // --- Real submission: hand the message to Gmail, prefilled & ready to send ---
-      // No backend needed. Opening a Gmail "compose" URL means clicking Send
-      // genuinely composes an email to jeevanbhat33@gmail.com with the
-      // visitor's details filled in. (To instead deliver messages silently in
-      // the background, POST the fields to a service like Formspree / Web3Forms
-      // or your own API right here.)
+      // --- Real submission: deliver the message straight to the inbox ---
+      // Static sites can't send email on their own, so we POST to FormSubmit
+      // (https://formsubmit.co) — a free, no-backend relay that emails each
+      // submission to jeevanbhat33@gmail.com. No Gmail window, no manual send.
+      // NOTE: the very first submission triggers a one-time "Activate" email
+      // from FormSubmit to that address; click it once and all future messages
+      // arrive directly. (Prefer a key-based service? Swap the endpoint for a
+      // Web3Forms / Formspree one — the fetch shape is the same.)
       const btn = $('#submitBtn');
       const original = btn.innerHTML;
 
       // Note: use form.elements — `form.name` resolves to the form's own
       // reserved `name` property, not the Name field.
       const val = (n) => (form.elements.namedItem(n)?.value || '').trim();
-      const composeUrl = 'https://mail.google.com/mail/?view=cm&fs=1'
-        + '&to=' + encodeURIComponent('jeevanbhat33@gmail.com')
-        + '&su=' + encodeURIComponent(val('subject'))
-        + '&body=' + encodeURIComponent(
-            'Name: ' + val('name') + '\n' +
-            'Email: ' + val('email') + '\n\n' +
-            val('message')
-          );
-
-      // Anchor-click inside this click/submit gesture is the most reliable,
-      // popup-blocker-friendly way to open the compose tab.
-      const opener = document.createElement('a');
-      opener.href = composeUrl;
-      opener.target = '_blank';
-      opener.rel = 'noopener noreferrer';
-      document.body.appendChild(opener);
-      opener.click();
-      opener.remove();
 
       btn.disabled = true;
-      btn.innerHTML = 'Opening Gmail…';
+      btn.innerHTML = 'Sending…';
+      status.textContent = '';
+      status.className = 'form__status';
 
-      setTimeout(() => {
-        form.reset();
-        fields.forEach((f) => f.closest('.field').classList.remove('is-valid', 'is-invalid'));
-        btn.disabled = false;
-        btn.innerHTML = original;
-        status.textContent = '✓ Your message is ready in Gmail — just press Send there.';
-        status.className = 'form__status is-success';
-        setTimeout(() => { status.textContent = ''; status.className = 'form__status'; }, 8000);
-      }, 600);
+      const ENDPOINT = 'https://formsubmit.co/ajax/jeevanbhat33@gmail.com';
+      fetch(ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          name: val('name'),
+          email: val('email'),
+          subject: val('subject'),
+          message: val('message'),
+          _subject: 'New portfolio message: ' + val('subject'),
+          _replyto: val('email'),
+          _captcha: 'false',
+          _template: 'table',
+        }),
+      })
+        .then((res) => {
+          if (!res.ok) throw new Error('HTTP ' + res.status);
+          return res.json().catch(() => ({}));
+        })
+        .then(() => {
+          form.reset();
+          fields.forEach((f) => f.closest('.field').classList.remove('is-valid', 'is-invalid'));
+          status.textContent = '✓ Thanks! Your message has been sent — I\'ll get back to you soon.';
+          status.className = 'form__status is-success';
+          setTimeout(() => { status.textContent = ''; status.className = 'form__status'; }, 8000);
+        })
+        .catch(() => {
+          status.textContent = '⚠ Couldn\'t send right now — please email me directly at jeevanbhat33@gmail.com.';
+          status.className = 'form__status is-error';
+        })
+        .finally(() => {
+          btn.disabled = false;
+          btn.innerHTML = original;
+        });
     });
   }
 
