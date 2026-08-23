@@ -1,0 +1,25 @@
+# render.yaml — Render Blueprint for this no-build static site
+# Spec: https://render.com/docs/blueprint-spec
+services:
+  - type: web
+    name: jeevan-portfolio
+    runtime: static
+    # No build step: plain HTML/CSS/JS is served as-is. A no-op command
+    # satisfies the schema (buildCommand is required for non-Docker services)
+    # without actually building anything.
+    buildCommand: echo "No build step"
+    # index.html lives at the repo root, so publish the root directory.
+    staticPublishPath: .
+    # Sensible security headers, applied to every path.
+    headers:
+      - path: /*
+        name: X-Frame-Options
+        value: SAMEORIGIN
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+      - path: /*
+        name: Referrer-Policy
+        value: strict-origin-when-cross-origin
+    # No catch-all rewrite: this is a single-page, multi-SECTION site using
+    # in-page #anchor links (#about, #projects) — not client-side path routing.

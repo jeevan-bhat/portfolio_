@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio of Jeevan G Bhat — Computer Science & Engineering student and full-stack developer building clean, responsive, cloud-deployed web apps with React, Python, and Node.js." />
+  <meta name="author" content="Jeevan G Bhat" />
+
+  <!-- Open Graph / social preview -->
+  <meta property="og:title" content="Jeevan G Bhat — Full-Stack Developer" />
+  <meta property="og:description" content="CSE student & full-stack developer. I build and deploy clean, modern web apps." />
+  <meta property="og:type" content="website" />
+
+  <title>Jeevan G Bhat · Portfolio</title>
+
+  <!-- Google Fonts (degrades gracefully to system fonts if offline) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>" />
+
+  <!-- Apply saved theme before paint to avoid a flash of the wrong theme -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('theme');
+        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
+</head>
+
+<body>
+  <!-- ============================================================
+       Inline SVG icon library — referenced via <use> so the site
+       is fully self-contained (no icon-font CDN required).
+  ============================================================= -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="i-github" viewBox="0 0 24 24"><path fill="currentColor" d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.34-1.3-1.7-1.3-1.7-1.06-.72.08-.7.08-.7 1.17.08 1.79 1.2 1.79 1.2 1.04 1.79 2.73 1.27 3.4.97.1-.76.4-1.27.74-1.56-2.56-.29-5.26-1.28-5.26-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.24 2.76.12 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.7 5.4-5.28 5.69.42.36.79 1.07.79 2.16v3.2c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5Z"/></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.8 0 0 .78 0 1.75v20.5C0 23.22.8 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.75V1.75C24 .78 23.2 0 22.22 0Z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 4h16v16H4z"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m4 6 8 6 8-6"/></symbol>
+    <symbol id="i-external" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M14 3h7v7M21 3l-9 9M18 13v7a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h7"/></symbol>
+    <symbol id="i-arrow-up" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M12 19V5M5 12l7-7 7 7"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 3v12M7 10l5 5 5-5M4 21h16"/></symbol>
+    <symbol id="i-location" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.8 2Z"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></symbol>
+    <symbol id="i-code" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></symbol>
+    <symbol id="i-server" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="8" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><rect x="2" y="13" width="20" height="8" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M6 7h.01M6 17h.01"/></symbol>
+    <symbol id="i-terminal" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m7 9 3 3-3 3M13 15h4"/></symbol>
+    <symbol id="i-cloud" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M17.5 19a4.5 4.5 0 1 0-1.1-8.86A6 6 0 1 0 6 15.5"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M7 19h10.5"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" d="M20 6 9 17l-5-5"/></symbol>
+  </svg>
+
+  <!-- Scroll progress indicator -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- Skip link for keyboard/screen-reader users -->
+  <a href="#home" class="skip-link">Skip to content</a>
+
+  <!-- ============================= HEADER / NAV ============================= -->
+  <header class="header" id="header">
+    <nav class="nav container" aria-label="Primary">
+      <a href="#home" class="nav__logo">
+        <span class="nav__logo-mark">JB</span>
+        <span class="nav__logo-text">Jeevan<span class="accent">.</span></span>
+      </a>
+
+      <ul class="nav__menu" id="navMenu">
+        <li><a href="#home" class="nav__link is-active">Home</a></li>
+        <li><a href="#about" class="nav__link">About</a></li>
+        <li><a href="#skills" class="nav__link">Skills</a></li>
+        <li><a href="#projects" class="nav__link">Projects</a></li>
+        <li><a href="#contact" class="nav__link">Contact</a></li>
+      </ul>
+
+      <div class="nav__actions">
+        <button class="icon-btn" id="themeToggle" type="button" aria-label="Toggle color theme">
+          <svg class="icon icon-sun" width="20" height="20"><use href="#i-sun" /></svg>
+          <svg class="icon icon-moon" width="20" height="20"><use href="#i-moon" /></svg>
+        </button>
+        <a href="#contact" class="btn btn--primary btn--sm nav__cta">Let's Talk</a>
+        <button class="nav__toggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ============================= HERO / HOME ============================= -->
+    <section class="hero section" id="home">
+      <div class="hero__bg" aria-hidden="true">
+        <span class="blob blob--1"></span>
+        <span class="blob blob--2"></span>
+        <span class="grid-overlay"></span>
+      </div>
+
+      <div class="container hero__inner">
+        <div class="hero__content reveal">
+          <p class="hero__greeting">👋 Hi there, I'm</p>
+          <h1 class="hero__name">Jeevan G Bhat</h1>
+          <h2 class="hero__role">
+            I'm a <span class="typed" id="typed" aria-live="polite"></span><span class="cursor">|</span>
+          </h2>
+          <p class="hero__tagline">
+            A Computer Science &amp; Engineering student and full-stack developer
+            who builds clean, responsive web apps end-to-end — from React
+            front-ends to Python &amp; Node back-ends — and ships them to the cloud.
+          </p>
+
+          <div class="hero__cta">
+            <a href="#projects" class="btn btn--primary">
+              View My Work
+              <svg class="icon" width="18" height="18"><use href="#i-code" /></svg>
+            </a>
+            <a href="assets/resume.pdf" class="btn btn--ghost" download="Jeevan-G-Bhat-Resume.pdf">
+              Download Résumé
+              <svg class="icon" width="18" height="18"><use href="#i-download" /></svg>
+            </a>
+          </div>
+
+          <ul class="hero__socials">
+            <li><a href="https://github.com/jeevan-bhat" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg width="22" height="22"><use href="#i-github" /></svg></a></li>
+            <li><a href="https://www.linkedin.com/in/jeevan-bhat-a26260263" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="22" height="22"><use href="#i-linkedin" /></svg></a></li>
+            <li><a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=jeevanbhat33@gmail.com" target="_blank" rel="noopener noreferrer" aria-label="Email"><svg width="22" height="22"><use href="#i-mail" /></svg></a></li>
+          </ul>
+        </div>
+
+        <div class="hero__visual reveal" aria-hidden="true">
+          <div class="hero__card">
+            <div class="hero__avatar">JB</div>
+            <div class="hero__code">
+              <pre><code><span class="tok-key">const</span> <span class="tok-var">developer</span> = {
+  <span class="tok-prop">name</span>: <span class="tok-str">'Jeevan G Bhat'</span>,
+  <span class="tok-prop">role</span>: <span class="tok-str">'Full-Stack Dev'</span>,
+  <span class="tok-prop">stack</span>: [<span class="tok-str">'React'</span>, <span class="tok-str">'Python'</span>, <span class="tok-str">'Node'</span>],
+  <span class="tok-prop">learning</span>: <span class="tok-key">true</span>
+};</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <a href="#about" class="hero__scroll" aria-label="Scroll to About">
+        <span class="mouse"><span class="wheel"></span></span>
+      </a>
+    </section>
+
+    <!-- ============================= ABOUT ============================= -->
+    <section class="section about" id="about">
+      <div class="container">
+        <header class="section__head reveal">
+          <span class="section__eyebrow">01 — About</span>
+          <h2 class="section__title">A bit about me</h2>
+        </header>
+
+        <div class="about__grid">
+          <div class="about__media reveal">
+            <div class="about__photo">
+              <span class="about__photo-initials">JB</span>
+            </div>
+            <div class="about__badge">
+              <strong>8.5</strong>
+              <span>CGPA<br />@ VTU</span>
+            </div>
+          </div>
+
+          <div class="about__body reveal">
+            <p class="about__lead">
+              I'm a Computer Science &amp; Engineering student based in Mysore,
+              Karnataka, who loves turning ideas into practical, scalable software.
+            </p>
+            <p>
+              I build end-to-end web applications with React, Python/Flask, and
+              Node.js — backed by REST APIs and databases like MongoDB and
+              PostgreSQL. I've designed, built, and deployed several live projects
+              spanning AI, machine learning, healthcare, and cybersecurity.
+            </p>
+            <p>
+              I have a strong foundation in Data Structures &amp; Algorithms,
+              cloud computing (AWS, GCP, Azure), and security. Currently pursuing
+              my B.E. at VTU (2023–2027) — always learning and building. 🚀
+            </p>
+
+            <ul class="about__stats">
+              <li>
+                <strong data-count="15">0</strong>
+                <span>Projects Built</span>
+              </li>
+              <li>
+                <strong data-count="5" data-suffix="">0</strong>
+                <span>Live Apps Deployed</span>
+              </li>
+              <li>
+                <strong data-count="3">0</strong>
+                <span>Years Coding</span>
+              </li>
+            </ul>
+
+            <div class="about__actions">
+              <a href="assets/resume.pdf" class="btn btn--primary" download="Jeevan-G-Bhat-Resume.pdf">
+                Download Résumé
+                <svg class="icon" width="18" height="18"><use href="#i-download" /></svg>
+              </a>
+              <a href="#contact" class="btn btn--ghost">Get in touch</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= SKILLS ============================= -->
+    <section class="section skills" id="skills">
+      <div class="container">
+        <header class="section__head reveal">
+          <span class="section__eyebrow">02 — Skills</span>
+          <h2 class="section__title">Tools &amp; technologies</h2>
+        </header>
+
+        <div class="skills__grid">
+          <article class="skill-card reveal">
+            <div class="skill-card__icon"><svg width="24" height="24"><use href="#i-terminal" /></svg></div>
+            <h3>Languages</h3>
+            <p>The core languages I reach for to solve problems and build apps.</p>
+            <ul class="chips">
+              <li>C</li><li>C++</li><li>Python</li>
+              <li>JavaScript</li><li>Bash / Shell</li>
+            </ul>
+          </article>
+
+          <article class="skill-card reveal">
+            <div class="skill-card__icon"><svg width="24" height="24"><use href="#i-code" /></svg></div>
+            <h3>Frontend</h3>
+            <p>Building responsive, accessible interfaces with modern tooling.</p>
+            <ul class="chips">
+              <li>HTML5</li><li>CSS3</li><li>JavaScript</li>
+              <li>React.js</li><li>Responsive Design</li>
+            </ul>
+          </article>
+
+          <article class="skill-card reveal">
+            <div class="skill-card__icon"><svg width="24" height="24"><use href="#i-server" /></svg></div>
+            <h3>Backend &amp; Databases</h3>
+            <p>Designing REST APIs and services with reliable data storage.</p>
+            <ul class="chips">
+              <li>Python</li><li>Flask</li><li>Node.js</li><li>Express.js</li>
+              <li>REST APIs</li><li>MongoDB</li><li>PostgreSQL</li><li>MySQL</li><li>Supabase</li>
+            </ul>
+          </article>
+
+          <article class="skill-card reveal">
+            <div class="skill-card__icon"><svg width="24" height="24"><use href="#i-cloud" /></svg></div>
+            <h3>Cloud &amp; Security</h3>
+            <p>Deploying to the cloud with security fundamentals in mind.</p>
+            <ul class="chips">
+              <li>AWS</li><li>GCP</li><li>Azure</li><li>Render</li>
+              <li>Network Security</li><li>RSA / AES</li><li>VMware</li><li>Git &amp; GitHub</li>
+            </ul>
+          </article>
+        </div>
+
+        <!-- Animated proficiency bars -->
+        <div class="skills__bars reveal">
+          <div class="bar">
+            <div class="bar__label"><span>Python / Flask</span><span>90%</span></div>
+            <div class="bar__track"><span class="bar__fill" data-level="90"></span></div>
+          </div>
+          <div class="bar">
+            <div class="bar__label"><span>JavaScript / React</span><span>87%</span></div>
+            <div class="bar__track"><span class="bar__fill" data-level="87"></span></div>
+          </div>
+          <div class="bar">
+            <div class="bar__label"><span>HTML / CSS &amp; Responsive UI</span><span>92%</span></div>
+            <div class="bar__track"><span class="bar__fill" data-level="92"></span></div>
+          </div>
+          <div class="bar">
+            <div class="bar__label"><span>Databases &amp; Cloud</span><span>82%</span></div>
+            <div class="bar__track"><span class="bar__fill" data-level="82"></span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= PROJECTS ============================= -->
+    <section class="section projects" id="projects">
+      <div class="container">
+        <header class="section__head reveal">
+          <span class="section__eyebrow">03 — Projects</span>
+          <h2 class="section__title">Things I've built</h2>
+          <p class="section__sub">A selection of live, deployed projects. Plenty more on my GitHub.</p>
+        </header>
+
+        <div class="projects__grid">
+          <!-- Project 1 — SentinelScope -->
+          <article class="project reveal">
+            <div class="project__thumb project__thumb--a">
+              <span class="project__emoji">🛡️</span>
+            </div>
+            <div class="project__body">
+              <h3 class="project__title">SentinelScope</h3>
+              <p class="project__desc">
+                A cybersecurity platform to detect, analyze, and track threats —
+                with vulnerability scanning and suspicious-activity review through
+                a friendly interface.
+              </p>
+              <ul class="chips chips--sm">
+                <li>Python</li><li>Flask</li><li>Security</li><li>Analysis</li>
+              </ul>
+              <div class="project__links">
+                <a href="https://github.com/jeevan-bhat/SentinelScope-Cybersecurity" target="_blank" rel="noopener noreferrer" class="project__link">
+                  <svg width="18" height="18"><use href="#i-github" /></svg> Code
+                </a>
+                <a href="https://sentinelscope-cybersecurity.onrender.com" target="_blank" rel="noopener noreferrer" class="project__link">
+                  <svg width="18" height="18"><use href="#i-external" /></svg> Live Demo
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 2 — Stock Market Prediction -->
+          <article class="project reveal">
+            <div class="project__thumb project__thumb--b">
+              <span class="project__emoji">📈</span>
+            </div>
+            <div class="project__body">
+              <h3 class="project__title">Stock Market Prediction &amp; Analysis</h3>
+              <p class="project__desc">
+                An ML-powered web app that analyzes and forecasts stock trends
+                with interactive charts, built on Pandas, Scikit-learn, and Plotly.
+              </p>
+              <ul class="chips chips--sm">
+                <li>Python</li><li>Flask</li><li>Scikit-learn</li><li>Plotly</li>
+              </ul>
+              <div class="project__links">
+                <a href="https://github.com/jeevan-bhat/Stock-Market-Prediction-Analysis-Web-Application" target="_blank" rel="noopener noreferrer" class="project__link">
+                  <svg width="18" height="18"><use href="#i-github" /></svg> Code
+                </a>
+                <a href="https://stock-market-prediction-analysis-web-z5k8.onrender.com" target="_blank" rel="noopener noreferrer" class="project__link">
+                  <svg width="18" height="18"><use href="#i-external" /></svg> Live Demo
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 3 — AI Chatbot -->
+          <article class="project reveal">
+            <div class="project__thumb project__thumb--c">
+              <span class="project__emoji">🤖</span>
+            </div>
+            <div class="project__body">
+              <h3 class="project__title">AI Chatbot</h3>
+              <p class="project__desc">
+                A conversational AI assistant with a clean chat UI, powered by an
+                LLM API and a Python back-end for real-time responses.
+              </p>
+              <ul class="chips chips--sm">
+                <li>Python</li><li>Flask</li><li>AI / LLM</li><li>REST API</li>
+              </ul>
+              <div class="project__links">
+                <a href="https://github.com/jeevan-bhat/ai_chatbot" target="_blank" rel="noopener noreferrer" class="project__link">
+                  <svg width="18" height="18"><use href="#i-github" /></svg> Code
+                </a>
+                <a href="https://ai-chatbot-rouz.onrender.com" target="_blank" rel="noopener noreferrer" class="project__link">
+                  <svg width="18" height="18"><use href="#i-external" /></svg> Live Demo
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 4 — AI Image Generator -->
+          <article class="project reveal">
+            <div class="project__thumb project__thumb--d">
+              <span class="project__emoji">🎨</span>
+            </div>
+            <div class="project__body">
+              <h3 class="project__title">AI Image Generator</h3>
+              <p class="project__desc">
+                A web app that turns text prompts into images using a generative
+                AI model, with a simple, responsive interface.
+              </p>
+              <ul class="chips chips--sm">
+                <li>Python</li><li>Flask</li><li>Generative AI</li><li>REST API</li>
+              </ul>
+              <div class="project__links">
+                <a href="https://github.com/jeevan-bhat/ai_image_generator" target="_blank" rel="noopener noreferrer" class="project__link">
+                  <svg width="18" height="18"><use href="#i-github" /></svg> Code
+                </a>
+                <a href="https://ai-image-generator-225m.onrender.com" target="_blank" rel="noopener noreferrer" class="project__link">
+                  <svg width="18" height="18"><use href="#i-external" /></svg> Live Demo
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 5 — Hospital Management System -->
+          <article class="project reveal">
+            <div class="project__thumb project__thumb--e">
+              <span class="project__emoji">🏥</span>
+            </div>
+            <div class="project__body">
+              <h3 class="project__title">Hospital Management System</h3>
+              <p class="project__desc">
+                A management system to handle patients, doctors, and appointments
+                with a clean web interface and persistent data storage.
+              </p>
+              <ul class="chips chips--sm">
+                <li>HTML</li><li>CSS</li><li>JavaScript</li><li>Database</li>
+              </ul>
+              <div class="project__links">
+                <a href="https://github.com/jeevan-bhat/hospital_managment_system" target="_blank" rel="noopener noreferrer" class="project__link">
+                  <svg width="18" height="18"><use href="#i-github" /></svg> Code
+                </a>
+                <a href="https://hospital-managment-system-e2c4.onrender.com" target="_blank" rel="noopener noreferrer" class="project__link">
+                  <svg width="18" height="18"><use href="#i-external" /></svg> Live Demo
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 6 — YouTube Video Downloader -->
+          <article class="project reveal">
+            <div class="project__thumb project__thumb--f">
+              <span class="project__emoji">⬇️</span>
+            </div>
+            <div class="project__body">
+              <h3 class="project__title">YouTube Video Downloader</h3>
+              <p class="project__desc">
+                A Flask tool to fetch and download YouTube videos, built with
+                yt-dlp and Python's file and OS modules.
+              </p>
+              <ul class="chips chips--sm">
+                <li>Python</li><li>Flask</li><li>yt-dlp</li>
+              </ul>
+              <div class="project__links">
+                <a href="https://github.com/jeevan-bhat/Youtube_Video_Downloader" target="_blank" rel="noopener noreferrer" class="project__link">
+                  <svg width="18" height="18"><use href="#i-github" /></svg> Code
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="projects__more reveal">
+          <a href="https://github.com/jeevan-bhat" target="_blank" rel="noopener noreferrer" class="btn btn--ghost">
+            <svg width="18" height="18"><use href="#i-github" /></svg>
+            See more on GitHub
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= CONTACT ============================= -->
+    <section class="section contact" id="contact">
+      <div class="container">
+        <header class="section__head reveal">
+          <span class="section__eyebrow">04 — Contact</span>
+          <h2 class="section__title">Let's build something</h2>
+          <p class="section__sub">Have a project in mind, an opportunity, or just want to say hi? My inbox is always open.</p>
+        </header>
+
+        <div class="contact__grid">
+          <aside class="contact__info reveal">
+            <a class="contact__item" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=jeevanbhat33@gmail.com" target="_blank" rel="noopener noreferrer">
+              <span class="contact__icon"><svg width="20" height="20"><use href="#i-mail" /></svg></span>
+              <span><small>Email</small>jeevanbhat33@gmail.com</span>
+            </a>
+            <a class="contact__item" href="tel:+918431349133">
+              <span class="contact__icon"><svg width="20" height="20"><use href="#i-phone" /></svg></span>
+              <span><small>Phone</small>+91 84313 49133</span>
+            </a>
+            <div class="contact__item">
+              <span class="contact__icon"><svg width="20" height="20"><use href="#i-location" /></svg></span>
+              <span><small>Location</small>Mysore, Karnataka, India</span>
+            </div>
+
+            <ul class="contact__socials">
+              <li><a href="https://github.com/jeevan-bhat" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg width="20" height="20"><use href="#i-github" /></svg></a></li>
+              <li><a href="https://www.linkedin.com/in/jeevan-bhat-a26260263" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="20" height="20"><use href="#i-linkedin" /></svg></a></li>
+              <li><a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=jeevanbhat33@gmail.com" target="_blank" rel="noopener noreferrer" aria-label="Email"><svg width="20" height="20"><use href="#i-mail" /></svg></a></li>
+            </ul>
+          </aside>
+
+          <!-- novalidate: we handle validation in JS for consistent, styled errors -->
+          <form class="contact__form reveal" id="contactForm" novalidate>
+            <div class="field">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" placeholder="Jane Doe" autocomplete="name" />
+              <small class="field__error" data-error-for="name"></small>
+            </div>
+
+            <div class="field">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="jane@example.com" autocomplete="email" />
+              <small class="field__error" data-error-for="email"></small>
+            </div>
+
+            <div class="field">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" placeholder="Let's work together" />
+              <small class="field__error" data-error-for="subject"></small>
+            </div>
+
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" placeholder="Tell me about your project or opportunity..."></textarea>
+              <small class="field__error" data-error-for="message"></small>
+            </div>
+
+            <button type="submit" class="btn btn--primary btn--block" id="submitBtn">
+              Send Message
+              <svg class="icon" width="18" height="18"><use href="#i-mail" /></svg>
+            </button>
+
+            <p class="form__status" id="formStatus" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================= FOOTER ============================= -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <a href="#home" class="nav__logo">
+        <span class="nav__logo-mark">JB</span>
+        <span class="nav__logo-text">Jeevan<span class="accent">.</span></span>
+      </a>
+
+      <ul class="footer__links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <ul class="footer__socials">
+        <li><a href="https://github.com/jeevan-bhat" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg width="20" height="20"><use href="#i-github" /></svg></a></li>
+        <li><a href="https://www.linkedin.com/in/jeevan-bhat-a26260263" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="20" height="20"><use href="#i-linkedin" /></svg></a></li>
+        <li><a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=jeevanbhat33@gmail.com" target="_blank" rel="noopener noreferrer" aria-label="Email"><svg width="20" height="20"><use href="#i-mail" /></svg></a></li>
+      </ul>
+
+      <p class="footer__copy">© <span id="year"></span> Jeevan G Bhat. Built with HTML, CSS &amp; JavaScript.</p>
+    </div>
+  </footer>
+
+  <!-- Back-to-top button -->
+  <button class="to-top" id="toTop" type="button" aria-label="Back to top">
+    <svg width="22" height="22"><use href="#i-arrow-up" /></svg>
+  </button>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
